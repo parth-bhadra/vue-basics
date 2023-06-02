@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue Basics</title>
     <script src="https://unpkg.com/vue@next" defer></script>
     <script src="app.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Vue Course Goals</h1>
-        <p>{{ courseGoal }} </p> <!-- interpolation will not work here -->
+      <h1>Vue Course Goals</h1>
     </header>
     <section id="user-goal">
-        <h2>My Course Goal</h2>
-        <!-- <p> {{ courseGoal }} </p> this is interpolation -->
-        <p v-html="outputGoal()"> </p> <!-- this is interpolation for functions defined in methods option-->
-        
-        <!-- <p> {{ console.log('test') }} </p>  -->
-        <!-- you can't just simply execute anything because at the time of loading, not all js capabilities are loaded, only the very basic ones are loaded. Here console is not accessible and the app breaks. You can uncomment and this this -->
+      <h2>My Course Goal</h2>
+      <button @click.prevent="increment">Add</button> <!-- you can just reference the function -->
+      <button @click.prevent="decrement()">Remove</button> <!-- you can call the function, both are acceptable in vuejs unlike react -->
+      <p>Result {{count}}</p>
 
-        <p>Learn more <a v-bind:href="vueLink">about vue</a></p> <!-- for attributes you can't to interpolation, you need to do binding -->
-        <!-- <p> {{ console.log('any valid js will work here') }} </p> this is interpolation -->
+      <p>{{outputGoal()}}</p>
+      <!-- this unexepected behaviour of outputting a function value should not be used in general
+      because as we whenever a new value is rendered due to a button click(count in our case)
+      , it leads to fresh run of the output() function
+
+      so make it a thumb rule to display dynamic content only using properties of the data object -->
+      <!-- functions are generally used with even listeners, and not directly output dynamic content -->
+      
     </section>
-    
-</body>
+  </body>
 </html>

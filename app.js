@@ -1,9 +1,10 @@
 const app = Vue.createApp({
     data: () => {
         return {
-            courseGoalA: "<h2>Learn VueJS</h2>",
-            courseGoalB: "<h2>Master VueJS</h2>",
-            vueLink: "https://vuejs.org/"
+            courseGoalA: "Learn VueJS",
+            courseGoalB: "Master VueJS",
+            vueLink: "https://vuejs.org/",
+            count: 0
         }
     },
     methods : {
@@ -19,7 +20,14 @@ const app = Vue.createApp({
             } else {
                 return this.courseGoalB;
             }
+        },
+        increment() {
+            this.count++;
+        },
+        decrement() {
+            this.count--;
         }
+
     }
 });
 
