@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Basics</title>
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Vue Course Goals</h1>
+        <p>{{ courseGoal }} </p> <!-- interpolation will not work here -->
+    </header>
+    <section id="user-goal">
+        <h2>My Course Goal</h2>
+        <p> {{ courseGoal }} </p> <!-- this is interpolation -->
+        <p> {{ outputGoal() }} </p> <!-- this is interpolation for functions defined in methods option-->
+        
+        <!-- <p> {{ console.log('test') }} </p>  -->
+        <!-- you can't just simply execute anything because at the time of loading, not all js capabilities are loaded, only the very basic ones are loaded. Here console is not accessible and the app breaks. You can uncomment and this this -->
+
+        <p>Learn more <a v-bind:href="vueLink">about vue</a></p> <!-- for attributes you can't to interpolation, you need to do binding -->
+        <!-- <p> {{ console.log('any valid js will work here') }} </p> this is interpolation -->
+    </section>
+    
+</body>
+</html>
