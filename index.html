@@ -16,7 +16,7 @@
     <section id="user-goal">
         <h2>My Course Goal</h2>
         <!-- <p> {{ courseGoal }} </p> this is interpolation -->
-        <p> {{ outputGoal() }} </p> <!-- this is interpolation for functions defined in methods option-->
+        <p v-html="outputGoal()"> </p> <!-- this is interpolation for functions defined in methods option-->
         
         <!-- <p> {{ console.log('test') }} </p>  -->
         <!-- you can't just simply execute anything because at the time of loading, not all js capabilities are loaded, only the very basic ones are loaded. Here console is not accessible and the app breaks. You can uncomment and this this -->
